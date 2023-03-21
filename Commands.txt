@@ -1,0 +1,34 @@
+Проверить версию Python
+python -V
+python --version
+
+Проверить наличие pip
+pip --help
+
+Установка django
+pip install django
+
+Запуск django
+python -m django
+
+Создание проекта
+python -m django startproject skillbox_site
+
+Переходим в папку с проектом
+cd skillbox_site
+
+Список файлов в директории
+ls
+
+Перейти в родительскую папку (на уровень выше)
+cd ..
+
+Полный путь текущего расположения
+pwd
+
+Запуск сервера
+python manage.py runserver
+
+выход
+Ctrl + C
+
