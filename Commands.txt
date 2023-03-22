@@ -32,3 +32,16 @@ python manage.py runserver
 выход
 Ctrl + C
 
+Зафиксировать зависимости
+pip freeze > requirements.txt
+
+Установить миграции
+python manage.py migrate
+
+создать суперпользователя – администратора сайта
+python manage.py createsuperuser
+admin
+1234
+
+Создание приложения
+python manage.py startapp shopapp
