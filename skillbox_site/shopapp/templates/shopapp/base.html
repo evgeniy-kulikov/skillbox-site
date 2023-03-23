@@ -11,13 +11,14 @@
 {% block body %}
 Base body
 {% endblock %}
+
 <div>
-    {% now "H:i" %}
+    Current time: {% now "H:i" %}
 </div>
-{% now "l" %}
+<p>Day of the week: {% now "l" %} </p>
 <div>
-    {% now "l" as current_weekday%}
-    Today: {{ current_weekday }}
+    {% now "Y" as current_year%}
+    Year: {{ current_year }}
 </div>
 
 

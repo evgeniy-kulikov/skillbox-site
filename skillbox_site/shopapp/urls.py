@@ -1,8 +1,12 @@
 from django.urls import path
-from .views import shop_index
+from .apps import ShopappConfig
+from .views import shop_index, groups_list
 
-app_name = "shopapp"
+# Организация пространства имен для приложения
+# app_name = "shopapp"  # можно так
+app_name = ShopappConfig.name  # лучше так
 
 urlpatterns = [
-    path("", shop_index, name="index")
+    path("", shop_index, name="index"),
+    path("groups/", groups_list, name="groups_list"),
 ]

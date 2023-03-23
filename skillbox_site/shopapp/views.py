@@ -1,3 +1,4 @@
+from django.contrib.auth.models import Group
 from django.http import HttpResponse, HttpRequest
 from timeit import default_timer
 from django.shortcuts import render
@@ -21,3 +22,13 @@ def shop_index(request):
         "products": products,
     }
     return render(request, "shopapp/shop-index.html", context=context)
+
+
+def groups_list(request: HttpRequest):
+    context = {
+        # "groups": Group.objects.all(),
+        # prefetch_related выполняет отдельный поиск для каждой связи, уменьшая кол-во запросов к БД
+        "groups": Group.objects.prefetch_related("permissions").all(),
+    }
+    return render(request, "shopapp/group-list.html", context=context)
+
