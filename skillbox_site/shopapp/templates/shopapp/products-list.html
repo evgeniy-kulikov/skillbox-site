@@ -1,0 +1,25 @@
+{% extends "shopapp/base.html" %}
+
+{% block title %}
+Products List
+{% endblock %}
+
+
+{% block body %}
+<h1>Products: </h1>
+{% if products %}
+<div>
+    {% for item in products %}
+    <p>Name: {{item.name}}</p>
+    <p>Price: {{item.price}}</p>
+    <!--  Если нет скидки до ставится значение по умолчанию  -->
+    <p>Dicount: {% firstof item.discount "no discount" %}</p>
+    <br>
+    {% endfor %}
+</div>
+
+{% else %}
+<h3>No products in DB</h3>
+{% endif %}
+<br>
+{% endblock %}

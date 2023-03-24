@@ -46,6 +46,11 @@ python manage.py migrate
 
 Установить отдельно миграцию для приложения
 python manage.py migrate <имя приложения>
+python manage.py migrate shopapp
+
+Вернуться нв прежнюю миграцию отдельно для приложения
+python manage.py migrate <имя приложения> <порядковое имя миграционного файла>
+python manage.py migrate shopapp 0002
 
 создать суперпользователя – администратора сайта
 python manage.py createsuperuser
@@ -55,9 +60,6 @@ admin
 Создание приложения
 python manage.py startapp shopapp
 
-
-cd skillbox_site
-python manage.py runserver
 
 """
 Создание management commands в Django  — команды, выполняемые из командной строки с помощью скрипта manage.py
@@ -69,3 +71,7 @@ python manage.py runserver
 https://habr.com/ru/post/415049/
 https://docs.djangoproject.com/en/2.0/howto/custom-management-commands/
 """
+
+
+cd skillbox_site
+python manage.py runserver
