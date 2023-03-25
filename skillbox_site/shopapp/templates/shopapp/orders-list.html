@@ -1,0 +1,35 @@
+{% extends "shopapp/base.html" %}
+{% block title %}
+Orders List
+{% endblock %}
+
+{% block body %}
+<h1>Список заказов</h1>
+{{ orders }}
+<br>
+
+{% if orders %}
+<div>
+    {% for order in orders %}
+    <div>
+        <p>Order by: {% firstof order.user.first_name order.user.username %}</p>
+        <p>Promocode: {{ order.promocode }}</p>
+        <p>Order created at: {{ order.created_at|date:"d.m.Y" }} - {{ order.created_at|time:"H:i" }}</p>
+        <p>Delivery adress: {{ order.delivery_adress }}</p>
+        <div>
+            Product in order:
+            <ul>
+                {% for item in order.products.all %}
+                <li>{{ item.name }} for ${{ item.price }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<h3>No orders yet</h3>
+{% endif %}
+
+
+{% endblock %}

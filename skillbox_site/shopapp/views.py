@@ -2,7 +2,7 @@ from django.contrib.auth.models import Group
 from django.http import HttpResponse, HttpRequest
 from timeit import default_timer
 from django.shortcuts import render
-from shopapp.models import Product
+from shopapp.models import Product, Order
 
 
 # def shop_index(request: HttpRequest):  # нотация для request
@@ -38,3 +38,16 @@ def products_list(request: HttpRequest):
         "products": Product.objects.all(),
     }
     return render(request, "shopapp/products-list.html", context=context)
+
+
+def order_list(request: HttpRequest):
+    context = {
+        # "orders": Order.objects.all(), # загружается вся таблица (для всех пользователей)
+
+        # Загружаются поля только для конкретного пользователя. Уменьшаем выборку данных при запросе
+        # "orders": Order.objects.select_related("user").all(),
+
+        # Отдельная загрузка для "products". Дополнительно уменьшаем выборку данных при запросе
+        "orders": Order.objects.select_related("user").prefetch_related("products").all(),
+    }
+    return render(request, "shopapp/orders-list.html", context=context)
