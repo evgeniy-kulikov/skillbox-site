@@ -36,6 +36,21 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)  # автоматическая запись текущего времени при создании
     arhived = models.BooleanField(default=False)
 
+    def __str__(self) -> str:
+        return f"Product(pk={self.pk}, name={self.name!r})"  # !r делает имя в кавычках (репрезентативный вид)
+
+    # Если функционал обрезания текста используется в приложении, то реализуем его в классе модели
+    # Если этот функционал нужен только для админ-панели, то реализуем его файле shopapp/admin.py
+    # @property  # создание свойств в классах
+    # def description_short(self) -> str:
+    #     """
+    #     Обрезание текста поля "description" до 64 символов.
+    #     :return: str
+    #     """
+    #     if len(self.description) < 64:
+    #         return self.description
+    #     return self.description[:64] + "..."
+
 
 class Order(models.Model):
     delivery_adress = models.TextField(null=True, blank=True)  # null=True - плохое решение
