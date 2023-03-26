@@ -50,7 +50,7 @@ python manage.py migrate shopapp
 
 Вернуться нв прежнюю миграцию отдельно для приложения
 python manage.py migrate <имя приложения> <порядковое имя миграционного файла>
-python manage.py migrate shopapp 0002
+python manage.py migrate shopapp 0006
 
 создать суперпользователя – администратора сайта
 python manage.py createsuperuser
@@ -61,16 +61,7 @@ admin
 python manage.py startapp shopapp
 
 
-"""
-Создание management commands в Django  — команды, выполняемые из командной строки с помощью скрипта manage.py
-Например для быстрого создания объектов модели при разработке.
-Команды создаются в каталогах приложений (в подкаталоге app/management/commands). На каждую команду создается отдельный файл.
-Из командной строки будут доступны файлы, кроме тех, которые начинаются со знака подчеркивания.
-Команды создаются наследованием от класса django.core.management.base.BaseCommand. В простейшем случае достаточно переписать функцию handle.
-Эта команда будет выполнена, а возвращаемый ею результат напечатается в консоли.
-https://habr.com/ru/post/415049/
-https://docs.djangoproject.com/en/2.0/howto/custom-management-commands/
-"""
+
 
 
 cd skillbox_site

@@ -1,0 +1,20 @@
+*** ORM ***
+
+чтобы войти в консоль фреймворка:
+python manage.py shell
+
+
+Для более удобной работы с консолью ORM дополнительно установить пакеты:
+pip install ipython
+pip install django-extensions
+
+далее в settings.py зарегистрировать приложение django-extensions
+INSTALLED_APPS = [
+    ...
+    'django_extensions',
+    ...
+	]
+
+После этого набираем в консоли:
+cd skillbox_site
+python manage.py shell_plus --print-sql

@@ -20,8 +20,15 @@ blank
 Если поле имеет blank=False, поле будет обязательным.
 """
 
+
 # Create your models here.
 class Product(models.Model):
+
+    class Meta:
+        ordering = ["name", "price"]  # Сортировка по полю. В обратном прядке ["-name"]
+        verbose_name_plural = "products"  # Множественное имя
+        # db_table = "electronic_product"  # Отображение имени таблицы в БД (не не для модулей приложения django)
+
     name = models.CharField(max_length=100)
     description = models.TextField(null=False, blank=True)  # null=False - можно не писать. Это значение по умолчанию
     price = models.DecimalField(default=0, max_digits=8, decimal_places=2)  # decimal_places кол-во знаков после запятой
