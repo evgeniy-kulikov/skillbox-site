@@ -16,6 +16,8 @@ class ProductAdmin(admin.ModelAdmin):
     # list_display = "pk", "name", "description", "price", "discount", "arhived"
     list_display = "pk", "name", "description_short", "price", "discount", "arhived"   # меняем поле "description"
     list_display_links = "pk", "name"
+    ordering = "pk",  # "-pk" сортировка в обратном порядке
+    search_fields = "name", "description"  # поиск по содержимому полей
 
     # Если функционал обрезания текста используется в приложении, то реализуем его в классе модели
     # Если этот функционал нужен только для админ-панели, то реализуем его файле shopapp/admin.py

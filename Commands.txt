@@ -33,6 +33,7 @@ python manage.py runserver
 Ctrl + C
 
 Зафиксировать зависимости
+cd skillbox_site
 pip freeze > requirements.txt
 
 Запмсать миграции
