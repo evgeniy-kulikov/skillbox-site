@@ -26,6 +26,22 @@ class ProductAdmin(admin.ModelAdmin):
     ordering = "pk",  # "-pk" сортировка в обратном порядке
     search_fields = "name", "description"  # поиск по содержимому полей
 
+    # Дополнительное управление секциями полей (Группировка полей)
+    fieldsets = [
+        (None, {
+           "fields": ("name", "description"),
+        }),
+        ("Price options", {
+            "fields": ("price", "discount"),
+            "classes": ("wide", "collapse",),
+        }),
+        ("Extra options", {
+            "fields": ("arhived",),
+            "classes": ("collapse",),
+            "description": "Дополнение. Поле 'arhived' архивация при удалении"
+        })
+    ]
+
     # Если функционал обрезания текста используется в приложении, то реализуем его в классе модели
     # Если этот функционал нужен только для админ-панели, то реализуем его файле shopapp/admin.py
     def description_short(self, obj: Product) -> str:
