@@ -34,7 +34,7 @@ class Product(models.Model):
     price = models.DecimalField(default=0, max_digits=8, decimal_places=2)  # decimal_places кол-во знаков после запятой
     discount = models.PositiveSmallIntegerField(default=0)  # скидка
     created_at = models.DateTimeField(auto_now_add=True)  # автоматическая запись текущего времени при создании
-    arhived = models.BooleanField(default=False)
+    archived = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return f"Product(pk={self.pk}, name={self.name!r})"  # !r делает имя в кавычках (репрезентативный вид)
